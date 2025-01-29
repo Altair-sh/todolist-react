@@ -4,8 +4,10 @@ import { TodoListItem } from './TodoListItem'
 export const TodoList = () => {
     return (
         <ul>
-            <li><TodoListItem /></li>
-            <li><TodoListItem /></li>
+            <li><TodoListItem label = "Drink Coffee" /></li>
+            <li><TodoListItem label = "Implement React Application" /></li>
+            <li><TodoListItem label = "Make notes from your study" /></li>
+            <li><TodoListItem label = "Do not drink alchohol" important /></li>
         </ul>
     )
 }
