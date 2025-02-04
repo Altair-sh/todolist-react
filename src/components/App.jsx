@@ -2,6 +2,7 @@ import React from 'react'
 import { AppHeader } from './AppHeader'
 import { SearchPanel } from './SearchPanel'
 import { TodoList } from './TodoList'
+import { ItemStatusFilter } from './ItemStatusFilter'
 
 export const App = () => {
     const todoData = [
@@ -16,6 +17,7 @@ export const App = () => {
             <AppHeader />
             <SearchPanel />
             <TodoList todos = {todoData} />
+            <ItemStatusFilter />
         </div>
     )
 }
