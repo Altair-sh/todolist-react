@@ -9,7 +9,7 @@ export const App = () => {
         { label: 'Implement React Application', important: true, id: 2 },
         { label: 'Make notes from your stud', important: false, id: 3 },
         { label: 'Do not drink alchohol', important: false, id: 4 },
-    ];
+    ]
 
     return (
         <div>
