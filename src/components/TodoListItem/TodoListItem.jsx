@@ -1,7 +1,7 @@
 import React from 'react'
 import './TodoListItem.css'
 
-export const TodoListItem = ({ label, important = false }) => {
+const TodoListItem = ({ label, important = false }) => {
     const style = {
         color: important ? 'steelblue' : 'black',
         fontWeight: important ? 'bold' : 'normal'
@@ -24,3 +24,5 @@ export const TodoListItem = ({ label, important = false }) => {
         </span>
     )
 }
+
+export default TodoListItem

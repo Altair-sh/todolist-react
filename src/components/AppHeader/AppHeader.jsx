@@ -1,7 +1,7 @@
 import React from 'react'
 import './AppHeader.css'
 
-export const AppHeader = ({toDo, done}) => {
+const AppHeader = ({toDo, done}) => {
     return (
         <div className={"app-header d-flex"}>
             <h1>Todo List</h1>
@@ -9,3 +9,5 @@ export const AppHeader = ({toDo, done}) => {
         </div>
     )
 }
+
+export default AppHeader

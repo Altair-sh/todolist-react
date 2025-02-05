@@ -1,11 +1,11 @@
 import React from 'react'
-import { AppHeader } from './AppHeader'
-import { SearchPanel } from './SearchPanel'
-import { TodoList } from './TodoList'
-import { ItemStatusFilter } from './ItemStatusFilter'
+import AppHeader from '../AppHeader'
+import SearchPanel from '../SearchPanel'
+import TodoList from '../TodoList'
+import ItemStatusFilter from '../ItemStatusFilter'
 import './App.css'
 
-export const App = () => {
+const App = () => {
     const todoData = [
         { label: 'Drink Coffee', important: false, id: 1 },
         { label: 'React Application', important: true, id: 2 },
@@ -24,3 +24,5 @@ export const App = () => {
         </div>
     )
 }
+
+export default App
