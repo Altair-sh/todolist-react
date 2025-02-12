@@ -9,6 +9,6 @@ export default class ItemStatusFilter extends Component {
                 <button type={"button"} className={"btn btn-outline-secondary"}>Active list</button>
                 <button type={"button"} className={"btn btn-outline-secondary"}>Done</button>
             </div>
-        );
+        )
     }
-};
+}
