@@ -11,6 +11,7 @@ export default class App extends Component {
 
     state = {
         term: '',
+        filter: 'all',
         todoData: [
             this.createTodoItem('Drink Tea'),
             this.createTodoItem('Make Awesome App'),
@@ -29,7 +30,6 @@ export default class App extends Component {
 
     deleteItem = (id) => {
         this.setState(({todoData} ) => {
-            console.log('delete', id)
             const idx = todoData.findIndex((element) => element.id === id)
             const newArray = todoData.toSpliced(idx, 1)
             return {
@@ -50,7 +50,6 @@ export default class App extends Component {
     }
 
     onToggleImportant = (id) => {
-        console.log('toggle important', id)
         this.setState(({todoData}) => {
             return {
                 todoData: this.toggleProperty(todoData, id, 'important')
@@ -59,7 +58,6 @@ export default class App extends Component {
     }
 
     onToggleDone = (id) => {
-        console.log('toggle done', id)
         this.setState(({todoData}) => {
             return {
                 todoData: this.toggleProperty(todoData, id, 'done')
@@ -68,7 +66,6 @@ export default class App extends Component {
     }
 
     addItem = (text) => {
-        console.log('add', text)
         const newItem = this.createTodoItem(text)
         this.setState(({todoData}) => {
             const newArray = [ ...todoData, newItem ]
@@ -79,7 +76,6 @@ export default class App extends Component {
     }
 
     onSearchChange = (term) => {
-        console.log('search:', term)
         this.setState({term})
     }
 
@@ -93,9 +89,28 @@ export default class App extends Component {
         })
     }
 
+    onFilterChange = (filter) => {
+        this.setState({filter})
+    }
+
+    applyFilter(items, filter) {
+        switch (filter) {
+            case 'all':
+                return items
+            case 'active':
+                return items.filter((item) => !item.done)
+            case 'done':
+                return items.filter((item) => item.done)
+            default:
+                console.error(`invalid filter status '${filter}'`)
+                return items
+        }
+    }
+
     render() {
-        const { todoData, term } = this.state
-        const visibleItems = this.search(todoData, term)
+        const { todoData, term, filter } = this.state
+        const filteredItems = this.applyFilter(todoData, filter)
+        const visibleItems = this.search(filteredItems, term)
         const doneCount = todoData.filter((element) => element.done).length
         const todoCount = todoData.length - doneCount
 
@@ -104,7 +119,7 @@ export default class App extends Component {
                 <AppHeader toDo={todoCount} done={doneCount}/>
                 <div className="top-panel d-flex">
                     <SearchPanel onSearchChange={this.onSearchChange}/>
-                    <ItemStatusFilter/>
+                    <ItemStatusFilter filter={filter} onFilterChange={this.onFilterChange}/>
                 </div>
                 <TodoList todos={visibleItems}
                     onDeleted={this.deleteItem}
