@@ -7,6 +7,8 @@ import ItemAddForm from '../ItemAddForm'
 import './App.css'
 
 export default class App extends Component {
+    maxId = 100
+
     state = {
         todoData: [
             { label: 'Drink Coffee', important: false, id: 1 },
@@ -18,9 +20,24 @@ export default class App extends Component {
 
     deleteItem = (id) => {
         this.setState(({todoData} ) => {
-            console.log('deleting', id)
+            console.log('delete', id)
             const idx = todoData.findIndex((element) => element.id === id)
             const newArray = todoData.toSpliced(idx, 1)
+            return {
+                todoData: newArray
+            }
+        })
+    }
+
+    addItem = (text) => {
+        console.log('add', text)
+        const newItem = {
+            label: text,
+            important: false,
+            id: this.maxId++
+        }
+        this.setState(({todoData}) => {
+            const newArray = [ ...todoData, newItem ]
             return {
                 todoData: newArray
             }
@@ -37,7 +54,7 @@ export default class App extends Component {
                 </div>
                 <TodoList todos={this.state.todoData}
                     onDeleted={this.deleteItem}/>
-                <ItemAddForm/>
+                <ItemAddForm onItemAdded={this.addItem}/>
             </div>
         )
     }
