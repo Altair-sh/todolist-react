@@ -53,8 +53,8 @@ export default class App extends Component {
         this.setState(({todoData}) => {
             return {
                 todoData: this.toggleProperty(todoData, id, 'important')
-            };
-        });
+            }
+        })
     }
 
     onToggleDone = (id) => {
@@ -62,8 +62,8 @@ export default class App extends Component {
         this.setState(({todoData}) => {
             return {
                 todoData: this.toggleProperty(todoData, id, 'done')
-            };
-        });
+            }
+        })
     }
 
     addItem = (text) => {
