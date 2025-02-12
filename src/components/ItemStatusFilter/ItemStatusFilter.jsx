@@ -3,9 +3,10 @@ import './ItemStatusFilter.css'
 
 export default class ItemStatusFilter extends Component {
     buttons_data = [
-        {status: 'all', label: 'All list'},
-        {status: 'active', label: 'Active list'},
-        {status: 'done', label: 'Done list'}
+        {status: 'all', label: 'All'},
+        {status: 'important', label: 'Important'},
+        {status: 'active', label: 'Active'},
+        {status: 'done', label: 'Done'},
     ]
 
     render() {

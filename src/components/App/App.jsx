@@ -101,6 +101,8 @@ export default class App extends Component {
                 return items.filter((item) => !item.done)
             case 'done':
                 return items.filter((item) => item.done)
+            case 'important':
+                return items.filter((item) => !item.done && item.important)
             default:
                 console.error(`invalid filter status '${filter}'`)
                 return items
@@ -117,10 +119,8 @@ export default class App extends Component {
         return (
             <div className="todo-app">
                 <AppHeader toDo={todoCount} done={doneCount}/>
-                <div className="top-panel d-flex">
-                    <SearchPanel onSearchChange={this.onSearchChange}/>
-                    <ItemStatusFilter filter={filter} onFilterChange={this.onFilterChange}/>
-                </div>
+                <SearchPanel onSearchChange={this.onSearchChange}/>
+                <ItemStatusFilter filter={filter} onFilterChange={this.onFilterChange}/>
                 <TodoList todos={visibleItems}
                     onDeleted={this.deleteItem}
                     onToggleImportant = {this.onToggleImportant}
