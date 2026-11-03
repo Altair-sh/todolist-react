@@ -15,3 +15,11 @@ Builds the app for production into the `dist` folder.
 ### `npm run preview`
 
 Serves the production build locally to check it before deploying.
+
+### `npm run lint` / `npm run lint:fix`
+
+Lints the code with [oxlint](https://oxc.rs/docs/guide/usage/linter). `lint:fix` also applies automatic fixes.
+
+### `npm run typecheck`
+
+Type-checks the project with `tsc` without building it.
