@@ -9,7 +9,7 @@ const SearchPanel = (props: SearchPanelProps) => {
     const [term, setTerm] = useState('')
 
     const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-        const newTerm = e.target.value
+        const newTerm = e.currentTarget.value
         setTerm(newTerm)
         props.onSearchChange(newTerm)
     }

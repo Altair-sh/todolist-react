@@ -4,7 +4,7 @@ import SearchPanel from './SearchPanel'
 import TodoList from './TodoList'
 import ItemStatusFilter from './ItemStatusFilter'
 import ItemAddForm from './ItemAddForm'
-import type {FilterStatus, TodoItem} from './../types'
+import type {FilterStatus, TodoItem} from '../types'
 import './App.css'
 
 type BooleanTodoProperty = 'important' | 'done'
